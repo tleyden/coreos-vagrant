@@ -4,39 +4,39 @@
 write_files:
 - path: /etc/systemd/system/docker.service.d/increase-ulimit.conf
   owner: core:core
-  permissions: 420
+  permissions: 0644
   content: |
     [Service]
     LimitMEMLOCK=infinity
 - path: /etc/systemd/system/fleet.socket.d/30-ListenStream.conf
   owner: core:core
-  permissions: 420
+  permissions: 0644
   content: |
     [Socket]
     ListenStream=127.0.0.1:49153
 - path: /var/lib/couchbase/data/.README
   owner: core:core
-  permissions: 420
+  permissions: 0644
   content: |
     Couchbase Data files are stored here
 - path: /var/lib/couchbase/index/.README
   owner: core:core
-  permissions: 420
+  permissions: 0644
   content: |
     Couchbase Index files are stored here
 - path: /var/lib/cbfs/data/.README
   owner: core:core
-  permissions: 420
+  permissions: 0644
   content: |
     CBFS files are stored here
 - path: /opt/bin/etcdctl-get-first
   owner: core:core
-  permissions: 484
+  permissions: 0744
   content: |
     etcdctl ls $1 | head -n1 | awk -F/ '{print $4}'
 - path: /opt/bin/couchbase-server-ip
   owner: core:core
-  permissions: 484
+  permissions: 0744
   content: |
     MAX_ATTEMPTS=50
     SLEEP_SECS=10
